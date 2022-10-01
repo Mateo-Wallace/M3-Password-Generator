@@ -42,7 +42,7 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Link
 
-To see the deployed site, refer to: [Deployed Password Generator](https://choosealicense.com/).
+To see the deployed site, refer to: [Deployed Password Generator](https://mateo-wallace.github.io/M3-Password-Generator/).
 
 ## Screenshot of Deployed Site
 

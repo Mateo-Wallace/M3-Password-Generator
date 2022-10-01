@@ -96,8 +96,3 @@ function generatePassword() {
   } 
   return randomNumber;
 }
-
-
-
-
-
