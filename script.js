@@ -7,7 +7,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+  document.querySelector("#password").value = password;
 }
 
 // Add event listener to generate button
@@ -34,6 +34,9 @@ function generatePassword() {
       } 
   }
 
+  // changes value of length to a number
+  var numLength = Number(length);
+
   alert('You chose: ' + length);
 
   // checks choices for character options
@@ -58,35 +61,40 @@ function generatePassword() {
     } 
   }
 
-  // array compilation for available choices for characters
+  // string compilation for available choices for characters
   if (specialChar) {
-    specialChar = ['?', '!', '.', '@', '$', '#', '-', '_', ',', ':', ';', '<', '>', '%', '&', '*', '(', ')', '=', '+']
+    specialChar = '?!.@$#-_ ,:;<>%&*()=+'
   } else {
-    specialChar = []
+    specialChar = ''
   }
   
   if (numeric) {
-    numeric = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    numeric = '123456789'
   } else {
-    numeric = []
+    numeric = ''
   }
   
   if (upperCase) {
-    upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   } else {
-    upperCase = []
+    upperCase = ''
   }
   
   if (lowerCase) {
-    lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    lowerCase = 'abcdefghijklmnopqrstuvwxyz'
   } else {
-    lowerCase = []
+    lowerCase = ''
   }
   
   // Adds all selected choices into one large array with available password characters
-  var grandArray = specialChar.concat(numeric, upperCase, lowerCase);
-  alert('Array: ' + grandArray.length);
+  var grandString = specialChar.concat(numeric, upperCase, lowerCase);
   
+  // creates final password by randomizing through each item in the string
+  var randomNumber = '';
+  for (var i = 0; i < numLength; i++) {
+    randomNumber += grandString[Math.floor(Math.random() * grandString.length)];
+  } 
+  return randomNumber;
 }
 
 
