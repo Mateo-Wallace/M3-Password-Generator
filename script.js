@@ -37,47 +37,47 @@ function generatePassword() {
 
   // lower case
   var lowerCase = confirm('Do you want your password to include lower case letters?');
-  if (lowerCase) {
-    lowerCase = ['a', 'b']
-  } else {
-    lowerCase = null
-  }
+  // if (lowerCase) {
+  //   lowerCase = ['a', 'b']
+  // } else {
+  //   lowerCase = null
+  // }
 
   // upper case
   var upperCase = confirm('Do you want your password to include upper case letters?');
-  if (upperCase) {
-    upperCase = ['A', 'B']
-  } else {
-    upperCase = null
-  }
+  // if (upperCase) {
+  //   upperCase = ['A', 'B']
+  // } else {
+  //   upperCase = null
+  // }
 
   // numeric
   var numeric = confirm('Do you want your password to include numbers?');
-  if (numeric) {
-    numeric = ['1', '2']
-  } else {
-    numeric = null
-  }
+  // if (numeric) {
+  //   numeric = ['1', '2']
+  // } else {
+  //   numeric = null
+  // }
 
   // special characters
   var specialChar = confirm('Do you want your password to include special characters? \nEx: ?, !, @');
-  if (specialChar) {
-    specialChar = ['?', '!']
-  } else {
-    specialChar = null
-  }
+  // if (specialChar) {
+  //   specialChar = ['?', '!']
+  // } else {
+  //   specialChar = null
+  // }
+
+  alert('You chose the following options: \nlowercase: ' + lowerCase + '\nupper case: ' + upperCase + '\nnumbers: ' + numeric + '\nspecial character: ' + specialChar)
 
   // Need to complete 
   // Validation that at least one item was selected 
-  // var isInvalid = true;
-  // while (isInvalid) {
-  //     if (lowerCase[0] === 'a'  || upperCase[0] === 'A' || numeric[0] === '1' || specialChar[0] === '?'){
-  //         isInvalid = false;
-  //     } else {
-  //         alert('Your input was invalid. Try again.');
-  //         generatePassword();
-  //     } 
-  // }
+  var isInvalid2 = true;
+    if (lowerCase == true  || upperCase == true || numeric == true || specialChar == true){
+        isInvalid2 = false;
+    } else {
+        alert('Your input was invalid. \nAt least one character option must be selected. \nTry again.');
+        generatePassword.close()
+    } 
 
 }
 
