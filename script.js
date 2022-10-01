@@ -13,7 +13,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// #########################################################
+// ########################################################################################################################
 // New Code Below
 
 // function defining generatePassword
@@ -23,6 +23,7 @@ function generatePassword() {
   // Defines length value
   var length = prompt ('Choose the length of your password.\nMust be at least 8 characters.');
 
+  // checks to make sure length is between 7 and 129
   var isInvalid = true;
   while (isInvalid) {
       if (length > 7 && length < 129){
@@ -35,50 +36,27 @@ function generatePassword() {
 
   alert('You chose: ' + length);
 
-  // lower case
+  // checks choices for character options
   var lowerCase = confirm('Do you want your password to include lower case letters?');
-  // if (lowerCase) {
-  //   lowerCase = ['a', 'b']
-  // } else {
-  //   lowerCase = null
-  // }
-
-  // upper case
   var upperCase = confirm('Do you want your password to include upper case letters?');
-  // if (upperCase) {
-  //   upperCase = ['A', 'B']
-  // } else {
-  //   upperCase = null
-  // }
-
-  // numeric
   var numeric = confirm('Do you want your password to include numbers?');
-  // if (numeric) {
-  //   numeric = ['1', '2']
-  // } else {
-  //   numeric = null
-  // }
-
-  // special characters
   var specialChar = confirm('Do you want your password to include special characters? \nEx: ?, !, @');
-  // if (specialChar) {
-  //   specialChar = ['?', '!']
-  // } else {
-  //   specialChar = null
-  // }
 
-  alert('You chose the following options: \nlowercase: ' + lowerCase + '\nupper case: ' + upperCase + '\nnumbers: ' + numeric + '\nspecial character: ' + specialChar)
+  alert('You chose the following options: \nlowercase: ' + lowerCase + '\nupper case: ' + upperCase + '\nnumbers: ' + numeric + '\nspecial character: ' + specialChar);
 
-  // Need to complete 
   // Validation that at least one item was selected 
   var isInvalid2 = true;
+  while(isInvalid2) {
     if (lowerCase == true  || upperCase == true || numeric == true || specialChar == true){
         isInvalid2 = false;
     } else {
         alert('Your input was invalid. \nAt least one character option must be selected. \nTry again.');
-        generatePassword.close()
+        lowerCase = confirm('Do you want your password to include lower case letters?');
+        upperCase = confirm('Do you want your password to include upper case letters?');
+        numeric = confirm('Do you want your password to include numbers?');
+        specialChar = confirm('Do you want your password to include special characters? \nEx: ?, !, @');
     } 
-
+  }
 }
 
 
