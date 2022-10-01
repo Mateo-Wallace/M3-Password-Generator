@@ -21,7 +21,7 @@ function generatePassword() {
   alert ('As you go through these pop-ups. Please fill out your password criteria.')
 
   // Defines length value
-  var length = prompt ('Choose the length of your password.\nMust be at least 8 characters.');
+  var length = prompt ('Choose the length of your password.\nMust be at least 8 characters.\nMust not exceed 128 characters.');
 
   // checks to make sure length is between 7 and 129
   var isInvalid = true;
@@ -30,7 +30,7 @@ function generatePassword() {
           isInvalid = false;
       } else {
           alert('Your input was invalid. Try again.');
-          length = prompt('Choose the length of your password.\nMust be at least 8 characters.');
+          length = prompt('Choose the length of your password.\nMust be at least 8 characters.\nMust not exceed 128 characters.');
       } 
   }
 
@@ -83,9 +83,9 @@ function generatePassword() {
     lowerCase = []
   }
   
-    var grandArray = specialChar.concat(numeric, upperCase, lowerCase);
-  
-    alert('Array: ' + grandArray.length);
+  // Adds all selected choices into one large array with available password characters
+  var grandArray = specialChar.concat(numeric, upperCase, lowerCase);
+  alert('Array: ' + grandArray.length);
   
 }
 
