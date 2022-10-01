@@ -41,8 +41,7 @@ function generatePassword() {
   var upperCase = confirm('Do you want your password to include upper case letters?');
   var numeric = confirm('Do you want your password to include numbers?');
   var specialChar = confirm('Do you want your password to include special characters? \nEx: ?, !, @');
-
-  alert('You chose the following options: \nlowercase: ' + lowerCase + '\nupper case: ' + upperCase + '\nnumbers: ' + numeric + '\nspecial character: ' + specialChar);
+  alert('You chose the following options: \n Lower Case Letters: ' + lowerCase + '\n Upper Case Letters: ' + upperCase + '\n Numbers: ' + numeric + '\n Special Characters: ' + specialChar);
 
   // Validation that at least one item was selected 
   var isInvalid2 = true;
@@ -55,12 +54,13 @@ function generatePassword() {
         upperCase = confirm('Do you want your password to include upper case letters?');
         numeric = confirm('Do you want your password to include numbers?');
         specialChar = confirm('Do you want your password to include special characters? \nEx: ?, !, @');
+        alert('You chose the following options: \n Lower Case Letters: ' + lowerCase + '\n Upper Case Letters: ' + upperCase + '\n Numbers: ' + numeric + '\n Special Characters: ' + specialChar);
     } 
   }
 
   // array compilation for available choices for characters
   if (specialChar) {
-    specialChar = ['?', '!', '.', '@', '$', '#']
+    specialChar = ['?', '!', '.', '@', '$', '#', '-', '_', ',', ':', ';', '<', '>', '%', '&', '*', '(', ')', '=', '+']
   } else {
     specialChar = []
   }
