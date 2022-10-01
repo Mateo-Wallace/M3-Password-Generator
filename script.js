@@ -57,6 +57,36 @@ function generatePassword() {
         specialChar = confirm('Do you want your password to include special characters? \nEx: ?, !, @');
     } 
   }
+
+  // array compilation for available choices for characters
+  if (specialChar) {
+    specialChar = ['?', '!', '.', '@', '$', '#']
+  } else {
+    specialChar = []
+  }
+  
+  if (numeric) {
+    numeric = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+  } else {
+    numeric = []
+  }
+  
+  if (upperCase) {
+    upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+  } else {
+    upperCase = []
+  }
+  
+  if (lowerCase) {
+    lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+  } else {
+    lowerCase = []
+  }
+  
+    var grandArray = specialChar.concat(numeric, upperCase, lowerCase);
+  
+    alert('Array: ' + grandArray.length);
+  
 }
 
 
