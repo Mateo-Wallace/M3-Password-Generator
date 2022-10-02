@@ -7,7 +7,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  document.querySelector("#password").value = password;
 }
 
 // Add event listener to generate button
@@ -21,23 +20,20 @@ function generatePassword() {
   alert ('As you go through these pop-ups. Please fill out your password criteria.')
 
   // Defines length value
-  var length = prompt ('Choose the length of your password.\nMust be at least 8 characters.\nMust not exceed 128 characters.');
+  var numLength = Number(prompt ('Choose the length of your password.\nMust be at least 8 characters.\nMust not exceed 128 characters.'));
 
   // checks to make sure length is between 7 and 129
   var isInvalid = true;
   while (isInvalid) {
-      if (length > 7 && length < 129){
+      if (numLength > 7 && numLength < 129){
           isInvalid = false;
       } else {
           alert('Your input was invalid. Try again.');
-          length = prompt('Choose the length of your password.\nMust be at least 8 characters.\nMust not exceed 128 characters.');
+          numLength = Number(prompt ('Choose the length of your password.\nMust be at least 8 characters.\nMust not exceed 128 characters.'));
       } 
   }
 
-  // changes value of length to a number
-  var numLength = Number(length);
-
-  alert('You chose: ' + length);
+  alert('You chose: ' + numLength);
 
   // checks choices for character options
   var lowerCase = confirm('Do you want your password to include lower case letters?');
