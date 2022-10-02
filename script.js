@@ -67,10 +67,10 @@ function generatePassword() {
   // Merges strings of all chosen options
   var grandString = special.concat(lowerCase, upperCase, numeric);
 
-
-  return grandString;
+  // creates final password by randomizing through each item in the string
+  var randomNumber = '';
+  for (var i = 0; i < passwordLength; i++) {
+    randomNumber += grandString[Math.floor(Math.random() * grandString.length)];
+  } 
+  return randomNumber;
 }
-
-// add rng 
-// add values to check
-// add confirmation 
