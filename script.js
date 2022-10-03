@@ -12,82 +12,64 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// ########################################################################################################################
-// New Code Below
+// New Code Below this line ##############################################################################################
 
-// function defining generatePassword
 function generatePassword() {
-  alert ('As you go through these pop-ups. Please fill out your password criteria.')
+  alert ('Follow the following commands in order to generate your random password.');
 
-  // Defines length value
-  var numLength = Number(prompt ('Choose the length of your password.\nMust be at least 8 characters.\nMust not exceed 128 characters.'));
-
-  // checks to make sure length is between 7 and 129
-  var isInvalid = true;
-  while (isInvalid) {
-      if (numLength > 7 && numLength < 129){
-          isInvalid = false;
-      } else {
-          alert('Your input was invalid. Try again.');
-          numLength = Number(prompt ('Choose the length of your password.\nMust be at least 8 characters.\nMust not exceed 128 characters.'));
-      } 
-  }
-
-  alert('You chose: ' + numLength);
-
-  // checks choices for character options
-  var lowerCase = confirm('Do you want your password to include lower case letters?');
-  var upperCase = confirm('Do you want your password to include upper case letters?');
-  var numeric = confirm('Do you want your password to include numbers?');
-  var specialChar = confirm('Do you want your password to include special characters? \nEx: ?, !, @');
-  alert('You chose the following options: \n Lower Case Letters: ' + lowerCase + '\n Upper Case Letters: ' + upperCase + '\n Numbers: ' + numeric + '\n Special Characters: ' + specialChar);
-
-  // Validation that at least one item was selected 
-  var isInvalid2 = true;
-  while(isInvalid2) {
-    if (lowerCase == true  || upperCase == true || numeric == true || specialChar == true){
-        isInvalid2 = false;
+  // User input for password length and validation for a number between specified values
+  var inValid = true;
+  while (inValid) {
+    var passwordLength = Number(prompt('How many characters would you like your password to be?\nMust be more than 8 characters.\nMust be less than 128 characters.'));
+    if (passwordLength > 7 && passwordLength < 129) {
+      inValid = false;
+    } else if (passwordLength == 0) {
+      Window.close()
     } else {
-        alert('Your input was invalid. \nAt least one character option must be selected. \nTry again.');
-        lowerCase = confirm('Do you want your password to include lower case letters?');
-        upperCase = confirm('Do you want your password to include upper case letters?');
-        numeric = confirm('Do you want your password to include numbers?');
-        specialChar = confirm('Do you want your password to include special characters? \nEx: ?, !, @');
-        alert('You chose the following options: \n Lower Case Letters: ' + lowerCase + '\n Upper Case Letters: ' + upperCase + '\n Numbers: ' + numeric + '\n Special Characters: ' + specialChar);
-    } 
+      alert ('Input invalid. Please try again.');
+    }
   }
+  alert('You chose the length of your password to be:\n' + passwordLength + ' characters.\n\nYou will now choose if your password will contain numbers, special character, upper case, and lower case characters.\nPlease choose at least 1 option.');
 
-  // string compilation for available choices for characters
-  if (specialChar) {
-    specialChar = '?!.@$#-_ ,:;<>%&*()=+'
-  } else {
-    specialChar = ''
+  // User choice of character type and validation that at least one choice is true
+  while (!inValid) {
+    var lowerCase = confirm('Would you like your password to include: \nLower Case letters?');
+    var upperCase = confirm('Would you like your password to include: \nUpper Case letters?');
+    var numeric = confirm('Would you like your password to include: \nNumbers?');
+    var special = confirm('Would you like your password to include: \nSpecial Characters? \nEx: ?, !, >');
+    alert('You chose: \n Lower Case Letters: ' + lowerCase + '\n Upper Case Letters: ' + upperCase + '\n Numbers: ' + numeric + '\n Special Characters: ' + special);
+    if (lowerCase == true || upperCase == true || numeric == true || special == true) {
+      inValid = true;
+    } else {
+      alert('At least one character type must be selected. Please try again');
+    }
   }
   
-  if (numeric) {
-    numeric = '123456789'
-  } else {
-    numeric = ''
-  }
-  
-  if (upperCase) {
-    upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  } else {
-    upperCase = ''
-  }
-  
-  if (lowerCase) {
+  // Defines available password characters based on user input
+  if (lowerCase == true) {
     lowerCase = 'abcdefghijklmnopqrstuvwxyz'
   } else {
     lowerCase = ''
+  } if (upperCase == true) {
+    upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  } else {
+    upperCase = ''
+  } if (numeric == true) {
+    numeric = '123456789'
+  } else {
+    numeric = ''
+  } if (special == true) {
+    special = ' ~`!@#$%^&*()-+={}[]|/:;<>,.?'
+  } else {
+    special = ''
   }
-  
-  // Adds all selected choices into one large array with available password characters
-  var grandString = specialChar.concat(numeric, upperCase, lowerCase);
-  
+
+  // Merges strings of all chosen options
+  var grandString = special.concat(lowerCase, upperCase, numeric);
+
   // creates final password by randomizing through each item in the string
   var randomNumber = '';
-  for (var i = 0; i < numLength; i++) {
+  for (var i = 0; i < passwordLength; i++) {
     randomNumber += grandString[Math.floor(Math.random() * grandString.length)];
   } 
   return randomNumber;
