@@ -1,3 +1,5 @@
+[![License Badge](https://img.shields.io/badge/license-MIT-success?style=plastic)](./LICENSE)
+
 # M3-Password-Generator
 
 ## Description
@@ -40,14 +42,36 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 
-## Link
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Tests](#tests)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-To see the deployed site, refer to: [Deployed Password Generator](https://mateo-wallace.github.io/M3-Password-Generator/).
+## Installation
 
-## Screenshot of Deployed Site
+To run the application navigate to: [mateo-wallace.github.io/M3-Password-Generator/](https://mateo-wallace.github.io/M3-Password-Generator/).
 
-![alt text](./assets/images/deployed.png)
+## Usage
 
-## Credits
+1. Click on the `Generate Password` button on the center of the screen. This will pop up an alert window.
+2. Follow the instructions listed on screen to add your inputs.
+3. After all questions have been answered the display in the center of the screen will populate with a randomly generated password.
+4. Copy the password and use it as you see fit. Below is an example of what a generated password should look like.
+
+![example of what navigating to the website should look like](./assets/images/deployed.png)
+
+## Tests
+
+Try typing invalid inputs:
+- Password length under 8 or over 128 characters
+- Selecting cancel on all character types
+
+## License
+
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
+
+## Acknowledgments
 
 Foolish Developer (2022, June 2). Random Password Generator using Javascript. DEV Community 👩‍💻👨‍💻. Retrieved October 1, 2022, from https://dev.to/code_mystery/random-password-generator-using-javascript-6a 
